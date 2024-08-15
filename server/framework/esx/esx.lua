@@ -17,6 +17,12 @@ Citizen.CreateThread(function()
             return xPlayer
         end
 
+        function Framework.Functions.GetPlayerObjectByIdentifier(identifier)
+            local xPlayer = ESX.GetPlayerFromIdentifier(identifier)
+            
+            return xPlayer
+        end
+
         function Framework.Functions.GetIdentifier(playerObject)
             return playerObject.identifier
         end
