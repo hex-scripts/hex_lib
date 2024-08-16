@@ -58,7 +58,8 @@ Citizen.CreateThread(function()
         end
 
         function Framework.Functions.GetPlayerName()
-            return ESX.PlayerData.firstName .. " " .. ESX.PlayerData.lastName
+            local playerData = ESX.GetPlayerData()
+            return playerData.firstName .. " " .. playerData.lastName
         end
 
         function Framework.Functions.GetItemLabel(name)
