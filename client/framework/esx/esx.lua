@@ -57,6 +57,11 @@ Citizen.CreateThread(function()
             return ESX.PlayerData.identifier
         end
 
+        function Framework.Functions.GetPlayerName()
+            local playerData = ESX.GetPlayerData()
+            return playerData.firstName .. " " .. playerData.lastName
+        end
+
         function Framework.Functions.GetItemLabel(name)
             for k, v in pairs(ESX.GetPlayerData().inventory) do
                 if v.name == name then
