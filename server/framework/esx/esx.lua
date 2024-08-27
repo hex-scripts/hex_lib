@@ -13,13 +13,13 @@ Citizen.CreateThread(function()
 
         function Framework.Functions.GetPlayerObject(source)
             local xPlayer = ESX.GetPlayerFromId(source)
-            
+
             return xPlayer
         end
 
         function Framework.Functions.GetPlayerObjectByIdentifier(identifier)
             local xPlayer = ESX.GetPlayerFromIdentifier(identifier)
-            
+
             return xPlayer
         end
 

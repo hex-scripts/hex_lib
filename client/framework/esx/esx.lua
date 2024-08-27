@@ -53,6 +53,10 @@ Citizen.CreateThread(function()
             return 0
         end
 
+        function Framework.Functions.GetAccounts()
+            return ESX.PlayerData.accounts
+        end
+
         function Framework.Functions.GetIdentifier()
             return ESX.PlayerData.identifier
         end
@@ -69,7 +73,15 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        
+
+        function Framework.Functions.GetAccountLabel(name)
+            for k, v in pairs(ESX.PlayerData.accounts) do
+                if v.name == name then
+                    return v.label
+                end
+            end
+        end
+
         function Framework.Functions.GetItemCount(name)
             for k, v in pairs(ESX.GetPlayerData().inventory) do
                 if v.name == name then
@@ -81,7 +93,7 @@ Citizen.CreateThread(function()
         function Framework.Functions.GetItems()
             return ESX.GetPlayerData().inventory
         end
-        
+
         function Framework.Functions.GetWeaponList()
             return ESX.GetWeaponList()
         end
@@ -92,6 +104,10 @@ Citizen.CreateThread(function()
                     return v.label
                 end
             end
+        end
+
+        function Framework.Functions.GetMaxWeight()
+            return ESX.PlayerData.maxWeight
         end
 
         function Framework.Functions.TriggerServerCallback(name, cb, ...)
@@ -106,9 +122,9 @@ Citizen.CreateThread(function()
 
         function Framework.Functions.SpawnedVehicle(vehicle, vehicleProps)
             local ped = PlayerPedId()
-            
+
             ESX.Game.SetVehicleProperties(vehicle, vehicleProps)
-    
+
             SetVehRadioStation(vehicle, 'OFF')
             SetPedIntoVehicle(ped, vehicle, -1)
         end
